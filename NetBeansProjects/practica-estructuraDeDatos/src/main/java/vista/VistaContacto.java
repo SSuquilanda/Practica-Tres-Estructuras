@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package vista;
+package Vista;
 
-import ec.edu.ups.practica.estructuradedatos.modelo.Contacto;
+import Modelo.Contacto;
 import java.util.Scanner;
 
 /**
@@ -27,14 +27,9 @@ public class VistaContacto {
     public String buscarContactoNombre(){
         Scanner teclado = new Scanner(System.in);
         System.out.println("Ingresa el nombre del contacto a buscar: ");
-        String nombre = teclado.next();
+        String nombre = teclado.nextLine();
         return nombre;
     }
-    public Contacto eliminarCancion(){
-        teclado = new Scanner(System.in);
-        System.out.println("Ingresa el nombre del contacto a eliminar: ");
-        String  nombre = teclado.next();
-        return new Contacto(nombre);
-    }
+    
     
 }

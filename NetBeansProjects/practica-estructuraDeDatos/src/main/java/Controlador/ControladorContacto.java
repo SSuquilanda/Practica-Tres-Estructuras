@@ -4,9 +4,9 @@
  */
 package Controlador;
 
-import ec.edu.ups.practica.estructuradedatos.modelo.Agenda;
-import ec.edu.ups.practica.estructuradedatos.modelo.Contacto;
-import vista.VistaContacto;
+import Modelo.Agenda;
+import Modelo.Contacto;
+import Vista.VistaContacto;
 
 /**
  *
@@ -22,16 +22,28 @@ public class ControladorContacto {
         this.contacto = contacto;
         this.agenda= agenda;
     }
+
+    public ControladorContacto(VistaContacto vistaContacto, Agenda agenda) {
+        this.vistaContacto = vistaContacto;
+        this.agenda = agenda;
+    }
+    
     public void registrarContacto () {
         contacto = vistaContacto.ingresarContacto();
         agenda.agregar(contacto);
     }
-    public String eliminarContacto() {
+    public void eliminarContacto() {
         String nombre = vistaContacto.buscarContactoNombre();
-        contacto = agenda.obtenerNodoByIndice();
-        agenda.deleteByIndice(contacto);
+        contacto = agenda.getElementByNombre(nombre);
+        agenda.eliminarContacto(contacto);
+        System.out.println("Se elimino el contacto con exito ");
+        
     }
     public void buscarContacto (){
+        String nombre = vistaContacto.buscarContactoNombre();
+        contacto = agenda.getElementByNombre(nombre);
+        System.out.println("El contacto del nombre ingresado es: " + contacto);
+
         
     }
     
